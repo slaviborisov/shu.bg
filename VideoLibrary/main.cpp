@@ -15,6 +15,7 @@ int main()
 	VideoLibrary videoLibrary;
 	int option;
 	do {
+		cout << "\n";
 		cout << "0. Изход от програмата \n";
 		cout << "1. Добавяне на нов филм \n";
 		cout << "2. Покажи информацията за конкретен филм \n";

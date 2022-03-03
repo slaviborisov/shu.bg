@@ -20,4 +20,5 @@ class Movie
     void PrintData(); // метод за отпечатване на информацията на обект от този клас?
     Movie operator<(Movie); //предеф. опер. за сравнение по год. на създаване;
     void DummyData(int);
+    int GetID() { return unique_id; }
 };

@@ -18,6 +18,13 @@ VideoLibrary::VideoLibrary(string _name)
   name         = _name;
 }
 
+bool VideoLibrary::MovieExists(int id)
+{
+  for(int i = 0; i < count_movies; i++)
+    if (m[i].GetID() == id) return true;
+  return false;
+}
+
 void VideoLibrary::AddMovie()
 {
   Movie *p = m;
@@ -49,21 +56,21 @@ void VideoLibrary::RemoveMovie()
   int movieID;
   bool hasMovie;
   cout<<"Въведете номер на филм от архива: ";
-  Movie *p = m;
-  m = new Movie[count_movies];
-  for(int i = 0; i < count_movies; i++)
-    if (i != movieID -1)
-      m[i] = p[i];
-  delete []p;
-  if(hasMovie)
-  {
+  cin>>movieID;
+  if(MovieExists(movieID)) {
+    int j, i;
+    Movie *p = m;
+    m = new Movie[count_movies - 1];
+    for(j = 0, i = 0; i < count_movies; i++)
+      if (p[i].GetID() != movieID)
+        m[j++] = p[i];
     count_movies--;
+    delete []p;
   }
   else {
-    cout<<"Няма намерен филм в аргива по въведения номер";
+    cout<<"Няма такъв филм!";
   }
 }
-
 
 void VideoLibrary::DummyData(int count)
 {

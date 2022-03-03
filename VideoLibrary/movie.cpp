@@ -65,7 +65,7 @@ void Movie::PrintData()
   cout<<"Статус: "<<statuses[status]<<endl;
   cout<<"Име на филма: "<<name<<endl;
   cout<<"Цена: "<<fixed<<setprecision(2)<<price<<"лв. \n";
-  cout<<"Година на създаване: "<<year<<"год. \n";
+  cout<<"Година на създаване: "<<year<<" год. \n";
   cout<<"Режисьор "<<director<<endl;
   cout<<"--------------------------- \n";
 }

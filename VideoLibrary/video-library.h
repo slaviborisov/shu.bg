@@ -12,7 +12,7 @@ class VideoLibrary {
   public:
     VideoLibrary();
     VideoLibrary(string);
-    void AddLibraryName(string);
+    bool MovieExists(int);
     void AddMovie();
     void PrintMovie();
     void PrintAllMovies();
