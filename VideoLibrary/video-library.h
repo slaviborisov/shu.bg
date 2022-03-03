@@ -14,7 +14,8 @@ class VideoLibrary {
     VideoLibrary(string);
     void AddLibraryName(string);
     void AddMovie();
-    void PrintMovies();
+    void PrintAllMovies();
+    void PrintMovie();
     ~VideoLibrary() { delete []m; } //деструктор
 };
 

@@ -8,7 +8,7 @@ VideoLibrary::VideoLibrary()
 	m = NULL;
   count_movies = 0;
   cout<< "Въведете име на видеотека: ";
-  cin>>name;
+  getline(cin,name);
 }
 
 VideoLibrary::VideoLibrary(string _name)
@@ -29,7 +29,16 @@ void VideoLibrary::AddMovie()
 		delete []p;
 }
 
-void VideoLibrary::PrintMovies()
+void VideoLibrary::PrintMovie()
+{
+  int movieID;
+  cout<<"Въведете номер на филм от архива: ";
+  cin>>movieID;
+  cout<<"Избраният филм е: \n";
+  m[movieID -1].PrintData();
+}
+
+void VideoLibrary::PrintAllMovies()
 {
   for(int i = 0; i < count_movies; i++)
     m[i].PrintData();
