@@ -69,3 +69,15 @@ void Movie::PrintData()
   cout<<"Режисьор "<<director<<endl;
   cout<<"--------------------------- \n";
 }
+
+
+void Movie::DummyData(int _unique_id)
+{
+  media_type = (_unique_id % 2 == 0) ? 0 : 1;
+  status = (_unique_id % 2 == 0) ? 0 : 1;
+  name = "Movie "+to_string(_unique_id);
+  price = _unique_id;
+  year = 1991+_unique_id;
+  director = "Режисьор "+to_string(_unique_id);
+  unique_id = _unique_id;
+}

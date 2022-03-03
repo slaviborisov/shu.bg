@@ -19,4 +19,5 @@ class Movie
     void Add(int); // метод за добавяне на нов филм
     void PrintData(); // метод за отпечатване на информацията на обект от този клас?
     Movie operator<(Movie); //предеф. опер. за сравнение по год. на създаване;
+    void DummyData(int);
 };
