@@ -27,7 +27,6 @@ void VideoLibrary::AddMovie()
     m[count_movies].Add(count_movies + 1);
     count_movies++;
 		delete []p;
-
 }
 
 void VideoLibrary::PrintMovies()
