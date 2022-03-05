@@ -21,4 +21,5 @@ class Movie
     Movie operator<(Movie); //предеф. опер. за сравнение по год. на създаване;
     void DummyData(int);
     int GetID() { return unique_id; }
+    string GetDirector () { return director; }
 };

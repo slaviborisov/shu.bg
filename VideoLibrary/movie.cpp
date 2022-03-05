@@ -66,7 +66,7 @@ void Movie::PrintData()
   cout<<"Име на филма: "<<name<<endl;
   cout<<"Цена: "<<fixed<<setprecision(2)<<price<<"лв. \n";
   cout<<"Година на създаване: "<<year<<" год. \n";
-  cout<<"Режисьор "<<director<<endl;
+  cout<<"Режисьор: "<<director<<endl;
   cout<<"--------------------------- \n";
 }
 
@@ -78,6 +78,6 @@ void Movie::DummyData(int _unique_id)
   name = "Movie "+to_string(_unique_id);
   price = _unique_id;
   year = 1991+_unique_id;
-  director = "Режисьор "+to_string(_unique_id);
+  director = "Режисьор "+to_string((_unique_id % 2 == 0) ? 0 : 1);
   unique_id = _unique_id;
 }

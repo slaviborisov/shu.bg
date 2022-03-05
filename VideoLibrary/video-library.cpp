@@ -77,6 +77,22 @@ void VideoLibrary::RemoveMovie()
   }
 }
 
+void VideoLibrary::PrintMoviesByDirector() {
+  string director;
+  bool directorExists;
+  cout<<"Въведете режисьор: ";
+  cin.ignore();
+  getline(cin,director);
+  for(int i = 0; i < count_movies; i++)
+    if(m[i].GetDirector() == director) {
+      m[i].PrintData();
+      directorExists = true;
+    }
+  if(!directorExists) {
+    cout<<"Няма въведени филми за режисьор: "<<director<<endl;
+  }
+}
+
 void VideoLibrary::DummyData(int count)
 {
   m = new Movie[count];

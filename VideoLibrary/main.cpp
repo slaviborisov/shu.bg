@@ -21,6 +21,7 @@ int main()
 		cout << "2. Покажи информацията за конкретен филм \n";
     cout << "3. Покажи всички филми \n";
 		cout << "4. Изтриване на филм \n";
+		cout << "5. Покажете всички филми по съответен режисьор \n";
 		cout << "10. Add dummy data \n";
 		cin >> option;
 		switch(option)
@@ -30,6 +31,7 @@ int main()
 			case 2: videoLibrary.PrintMovie(); break;
       case 3: videoLibrary.PrintAllMovies(); break;
 			case 4: videoLibrary.RemoveMovie(); break;
+			case 5: videoLibrary.PrintMoviesByDirector(); break;
 			case 10: videoLibrary.DummyData(4); break;
 			default: cout << "Грешен избор! \n"; break;
 		}
