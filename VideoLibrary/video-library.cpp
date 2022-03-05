@@ -5,7 +5,7 @@ using namespace std;
 
 VideoLibrary::VideoLibrary()
 {
-	m = NULL;
+	m            = NULL;
   count_movies = 0;
   cout<< "Въведете име на видеотека: ";
   getline(cin,name);
@@ -13,16 +13,16 @@ VideoLibrary::VideoLibrary()
 
 VideoLibrary::VideoLibrary(string _name)
 {
-	m = NULL;
+	m            = NULL;
   count_movies = 0;
   name         = _name;
 }
 
-bool VideoLibrary::MovieExists(int id)
+int VideoLibrary::GetArrayIndex(int id)
 {
   for(int i = 0; i < count_movies; i++)
-    if (m[i].GetID() == id) return true;
-  return false;
+    if (m[i].GetID() == id) return i;
+  return -1;
 }
 
 void VideoLibrary::AddMovie()
@@ -41,8 +41,14 @@ void VideoLibrary::PrintMovie()
   int movieID;
   cout<<"Въведете номер на филм от архива: ";
   cin>>movieID;
-  cout<<"Избраният филм е: \n";
-  m[movieID -1].PrintData();
+  int index = GetArrayIndex(movieID);
+
+  if(index != -1) {
+    cout<<"Избраният филм е: \n";
+    m[index].PrintData();
+  } else {
+    cout<<"Няма такъв филм!";
+  }
 }
 
 void VideoLibrary::PrintAllMovies()
@@ -57,7 +63,7 @@ void VideoLibrary::RemoveMovie()
   bool hasMovie;
   cout<<"Въведете номер на филм от архива: ";
   cin>>movieID;
-  if(MovieExists(movieID)) {
+  if(GetArrayIndex(movieID) != -1) {
     int j, i;
     Movie *p = m;
     m = new Movie[count_movies - 1];
@@ -66,8 +72,7 @@ void VideoLibrary::RemoveMovie()
         m[j++] = p[i];
     count_movies--;
     delete []p;
-  }
-  else {
+  } else {
     cout<<"Няма такъв филм!";
   }
 }

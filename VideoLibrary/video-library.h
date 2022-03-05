@@ -12,12 +12,12 @@ class VideoLibrary {
   public:
     VideoLibrary();
     VideoLibrary(string);
-    bool MovieExists(int);
+    int GetArrayIndex(int);
     void AddMovie();
     void PrintMovie();
     void PrintAllMovies();
     void RemoveMovie();
-    void DummyData(int);
+    void DummyData(int); // Метод по желание. Добавя автоматично -n на брой филми.
     ~VideoLibrary() { delete []m; } //деструктор
 };
 
