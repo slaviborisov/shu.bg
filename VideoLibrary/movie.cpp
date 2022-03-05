@@ -11,8 +11,8 @@ Movie::Movie()
 {
   unique_id  = 0;
   media_type = 0;
-  year       = 0;
   status     = 0;
+  year       = 0;
   price      = 0;
   name       = "";
   director   = "";
@@ -22,22 +22,31 @@ Movie::Movie(
   int _unique_id,
   int _media_type,
   int _status,
+  float _price,
+  unsigned _year,
   string _name,
-  string _director,
-  unsigned int _year,
-  float _price
+  string _director
 )
 {
   unique_id  = _unique_id;
   media_type = _media_type;
   status     = _status;
-  name       = _name;
   price      = _price;
   year       = _year;
+  name       = _name;
   director   = _director;
 }
 
-
+int Movie::operator>(Movie movie)
+{
+  // по въведен режисьор и вид на носителя отпечатва данните за най-новият му незает филм
+	return (
+    status     == 0 &&
+    media_type == movie.media_type &&
+    director   == movie.director &&
+    year        > movie.year
+  );
+}
 
 void Movie::Add(int _unique_id)
 {
@@ -58,26 +67,24 @@ void Movie::Add(int _unique_id)
   unique_id = _unique_id;
 }
 
-
 void Movie::PrintData()
 {
   cout<<"Tип носител: "<<media_types[media_type]<<endl;
   cout<<"Статус: "<<statuses[status]<<endl;
   cout<<"Име на филма: "<<name<<endl;
   cout<<"Цена: "<<fixed<<setprecision(2)<<price<<"лв. \n";
-  cout<<"Година на създаване: "<<year<<" год. \n";
+  cout<<"Година на създаване: "<<year<<"год. \n";
   cout<<"Режисьор: "<<director<<endl;
   cout<<"--------------------------- \n";
 }
 
-
 void Movie::DummyData(int _unique_id)
 {
-  media_type = (_unique_id % 2 == 0) ? 0 : 1;
-  status = (_unique_id % 2 == 0) ? 0 : 1;
+  media_type = rand() % 2;
+  status = rand() % 2;
   name = "Movie "+to_string(_unique_id);
   price = _unique_id;
-  year = 1991+_unique_id;
+  year =  1991+_unique_id;
   director = "Режисьор "+to_string((_unique_id % 2 == 0) ? 0 : 1);
   unique_id = _unique_id;
 }
