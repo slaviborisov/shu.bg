@@ -20,6 +20,5 @@ class CUSustav {
     int IsInUchSustav(long int); // Метод за проверка на съществуващ учител по ЕГН
     void PrintUchiteliPoDisciplina(); // Метод за отпечатване на учителите, които преподават зададената дисциплина
     void PrintDiscplinaPoStaj(); // Метод за отпечатване на водената дисциплина на учителя с най-голям стаж
-    void DummyData();
     ~CUSustav() { delete []m; } // Деструктор: изтрива динамично заделената памет
 };

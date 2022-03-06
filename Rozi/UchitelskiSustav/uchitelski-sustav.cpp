@@ -116,13 +116,3 @@ void CUSustav::PrintDiscplinaPoStaj()
   else
     cout<<"Не беше намерен учител!";
 }
-
-void CUSustav::DummyData()
-{
-  m = new CUchitel[3];
-  m[0] = CUchitel("Учител 1",   1234563459, 30, "Мат", 8);
-  m[1] = CUchitel("Учител 2", 8732423445, 39, "MIO", 10);
-  m[2] = CUchitel("Учител 3",  8504276540, 37, "KI", 32);
-  m[3] = CUchitel("Учител 4", 2342349872, 40, "KI", 16);
-  broi_zapisi = 4;
-}

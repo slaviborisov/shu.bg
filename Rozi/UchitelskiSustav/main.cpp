@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
 int main()
 {
 	CUSustav uchSustav;
@@ -27,7 +26,6 @@ int main()
 			case 4: uchSustav.DeleteUchitel(); break;
 			case 5: uchSustav.PrintUchiteliPoDisciplina(); break;
 			case 6: uchSustav.PrintDiscplinaPoStaj(); break;
-			case 7: uchSustav.DummyData(); break;
 			default: cout << "Грешен избор!"<<endl; break;
 		}
 	} while(c);
