@@ -18,5 +18,6 @@ class CUchitel
     void Add(); // Метод за добавяне на нов учител
     void Print();  // Метод за отпечатване на информацията за избран учител
     string Ime() { return ime; }
+    string Disciplina() { return disciplina; }
     long int EGN() { return egn; }
 };
