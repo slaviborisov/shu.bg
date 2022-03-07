@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  // system("chcp 1251");
+  system("chcp 1251");
   CBuro buro;
   int c;
   do {
@@ -30,7 +30,7 @@ int main()
     }
   } while(c);
 
-  // system("pause");
+  system("pause");
   return 0;
 }
 
