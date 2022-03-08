@@ -15,7 +15,6 @@ int main()
     cout << "3. Покажи всички клиенти регистриани в бюрото"<<endl;
     cout << "4. Изтриване на клиент"<<endl;
     cout << "5. Показване всички клиенти, които имат по-голям от зададения стаж"<<endl;
-    cout << "10. Add dummy data \n";
     cin >> c;
     switch(c)
     {
@@ -25,7 +24,6 @@ int main()
       case 3: buro.PrintiVsichkiKlienti(); break;
       case 4: buro.DeleteKlient(); break;
       case 5: buro.PrintKlientiPoStaj(); break;
-      case 10: buro.DummyData(); break;
       default: cout << "Грешен избор!"<<endl; break;
     }
   } while(c);
