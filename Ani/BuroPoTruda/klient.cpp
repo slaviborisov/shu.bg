@@ -3,8 +3,8 @@
 #include <string>
 using namespace std;
 
-string media_types[2] = { "Ğ’Ğ¸Ğ´ĞµĞ¾ĞºĞ°ÑĞµÑ‚Ğ°", "DVD"};
-string statuses[2]    = { "Ğ¡Ğ²Ğ¾Ğ±Ğ¾Ğ´Ğ½Ğ°", "Ğ—Ğ°ĞµÑ‚Ğ°" };
+string media_types[2] = { "Âèäåîêàñåòà", "DVD"};
+string statuses[2]    = { "Ñâîáîäíà", "Çàåòà" };
 
 CKlient::CKlient()
 {
@@ -35,33 +35,33 @@ int CKlient::operator>(CKlient klient)
 
 void CKlient::Add()
 {
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ñ€ĞµĞ³. Ğ½Ğ¾Ğ¼ĞµÑ€: ";
+  cout<<"Âúâåäåòå ğåã. íîìåğ: ";
   cin>>reg_nomer;
 
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ğ¸Ğ¼Ğµ: ";
+  cout<<"Âúâåäåòå èìå: ";
   cin.ignore(cin.rdbuf()->in_avail() + 1);
   getline(cin,ime);
 
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ğ•Ğ“Ğ: ";
+  cout<<"Âúâåäåòå ÅÃÍ: ";
   cin>>egn;
 
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ğ¿Ğ¾Ğ»: ";
+  cout<<"Âúâåäåòå ïîë: ";
   cin>>pol;
 
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ğ²ÑŠĞ·Ñ€Ğ°ÑÑ‚: ";
+  cout<<"Âúâåäåòå âúçğàñò: ";
   cin>>vuzrast;
 
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ğ¿Ñ€Ğ¾Ñ„ĞµÑĞ¸Ñ: ";
+  cout<<"Âúâåäåòå ïğîôåñèÿ: ";
   cin.ignore(cin.rdbuf()->in_avail() + 1);
   getline(cin,profesiq);
 
-  cout<<"Ğ’ÑŠĞ²ĞµĞ´ĞµÑ‚Ğµ Ñ‚Ñ€ÑƒĞ´Ğ¾Ğ² ÑÑ‚Ğ°Ğ¶: ";
+  cout<<"Âúâåäåòå òğóäîâ ñòàæ: ";
   cin>>staj;
 }
 
 void CKlient::Print()
 {
   cout <<reg_nomer<<"\t"<<ime<<"\t"<<egn<<"\t";
-  cout<<(pol == 0 ? "ĞœÑŠĞ¶" : "Ğ–ĞµĞ½Ğ°")<<"\t";
+  cout<<(pol == 0 ? "Ìúæ" : "Æåíà")<<"\t";
   cout<<"\t"<<vuzrast<<"\t"<<profesiq<<"\t"<<staj<<endl;
 }
