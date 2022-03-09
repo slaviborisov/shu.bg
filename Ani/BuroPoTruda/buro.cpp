@@ -7,7 +7,7 @@ CBuro::CBuro()
 {
 	m = NULL;
   broi_klienti = 0;
-  cout<< "Âúâåäåòå èìå íà áþðîòî ïî òðóäîâà çàåòîñò: ";
+  cout<< "Ð’ÑŠÐ²ÐµÐ´ÐµÑ‚Ðµ Ð¸Ð¼Ðµ Ð½Ð° Ð±ÑŽÑ€Ð¾Ñ‚Ð¾ Ð¿Ð¾ Ñ‚Ñ€ÑƒÐ´Ð¾Ð²Ð° Ð·Ð°ÐµÑ‚Ð¾ÑÑ‚: ";
   getline(cin,ime);
 }
 
@@ -47,7 +47,7 @@ void CBuro::AddKlient()
 void CBuro::PrintKlient()
 {
   int reg_nomer;
-  cout<<"Âúâåäåòå ðåã. íîìåð : ";
+  cout<<"Ð’ÑŠÐ²ÐµÐ´ÐµÑ‚Ðµ Ñ€ÐµÐ³. Ð½Ð¾Ð¼ÐµÑ€ : ";
   cin>>reg_nomer;
 
   int klient = ProverkaPoRegNomer(reg_nomer);
@@ -64,7 +64,7 @@ void CBuro::PrintiVsichkiKlienti()
 void CBuro::DeleteKlient()
 {
   long int egn;
-  cout<<"Âúâåäåòå ÅÃÍ íà êëèåíòà: ";
+  cout<<"Ð’ÑŠÐ²ÐµÐ´ÐµÑ‚Ðµ Ð•Ð“Ð Ð½Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°: ";
   cin>>egn;
 
   if(ProverkaPoEGN(egn) != -1) {
@@ -79,7 +79,7 @@ void CBuro::DeleteKlient()
     delete []p;
   }
   else {
-    cout<<"Íå áåøå íàìåðåí êëèåíò ïî âúâåäåíîòî ÅÃÍ!";
+    cout<<"ÐÐµ Ð±ÐµÑˆÐµ Ð½Ð°Ð¼ÐµÑ€ÐµÐ½ ÐºÐ»Ð¸ÐµÐ½Ñ‚ Ð¿Ð¾ Ð²ÑŠÐ²ÐµÐ´ÐµÐ½Ð¾Ñ‚Ð¾ Ð•Ð“Ð!";
   }
 }
 
@@ -87,7 +87,7 @@ void CBuro::PrintKlientiPoStaj()
 {
   int klienti = 0;
   int staj = 0;
-  cout<<"Âúâåäåòå ñòàæ: ";
+  cout<<"Ð’ÑŠÐ²ÐµÐ´ÐµÑ‚Ðµ ÑÑ‚Ð°Ð¶: ";
   cin>>staj;
 
   CKlient klient(0, "", 0, 0, 0, "", staj);
@@ -97,6 +97,6 @@ void CBuro::PrintKlientiPoStaj()
       klienti++;
     }
   if(klienti == 0) {
-    cout<<"Íÿìà êëèåíòè ñúñ çàäàäåíèÿ ñòàæ"<<endl;
+    cout<<"ÐÑÐ¼Ð° ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð¸ ÑÑŠÑ Ð·Ð°Ð´Ð°Ð´ÐµÐ½Ð¸Ñ ÑÑ‚Ð°Ð¶"<<endl;
   }
 }

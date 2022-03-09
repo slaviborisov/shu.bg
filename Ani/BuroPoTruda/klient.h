@@ -5,22 +5,22 @@ using namespace std;
 class CKlient
 {
   private:
-    int reg_nomer; //Регистрационен номер
-    string ime; //Име на клиента
-    long int egn; //ЕГН на клиента
-    int pol; //Пол на клиента
-    int vuzrast; //Възраст на клиента
-    string profesiq; //Професия на клиента
-    int staj; //Стаж на клиента
+    int reg_nomer; //Р РµРіРёСЃС‚СЂР°С†РёРѕРЅРµРЅ РЅРѕРјРµСЂ
+    string ime; //РРјРµ РЅР° РєР»РёРµРЅС‚Р°
+    long int egn; //Р•Р“Рќ РЅР° РєР»РёРµРЅС‚Р°
+    int pol; //РџРѕР» РЅР° РєР»РёРµРЅС‚Р°
+    int vuzrast; //Р’СЉР·СЂР°СЃС‚ РЅР° РєР»РёРµРЅС‚Р°
+    string profesiq; //РџСЂРѕС„РµСЃРёСЏ РЅР° РєР»РёРµРЅС‚Р°
+    int staj; //РЎС‚Р°Р¶ РЅР° РєР»РёРµРЅС‚Р°
 
 
   public:
     CKlient();
     CKlient(int, string, long int, int, int, string, int);
-    int operator>(CKlient); //Предефиниране на оператор >
+    int operator>(CKlient); //РџСЂРµРґРµС„РёРЅРёСЂР°РЅРµ РЅР° РѕРїРµСЂР°С‚РѕСЂ >
     int RegNomer() { return reg_nomer; }
     long int EGN() { return egn; }
-    void Add(); //Метод за добавяне на нов филм
-    void Print(); //Метод за отпечатване на информацията на клиента
+    void Add(); //РњРµС‚РѕРґ Р·Р° РґРѕР±Р°РІСЏРЅРµ РЅР° РЅРѕРІ С„РёР»Рј
+    void Print(); //РњРµС‚РѕРґ Р·Р° РѕС‚РїРµС‡Р°С‚РІР°РЅРµ РЅР° РёРЅС„РѕСЂРјР°С†РёСЏС‚Р° РЅР° РєР»РёРµРЅС‚Р°
 };
 
