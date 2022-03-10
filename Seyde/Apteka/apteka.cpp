@@ -19,12 +19,13 @@ CApteka::CApteka(string i)
 }
 
 
-// int CApteka::IsInUchSustav(string ime)
-// {
-//   for(int i = 0; i < broi_lekarstva; i++)
-//     if (ime == m[i].Ime()) return i;
-//   return -1;
-// }
+int CApteka::NameriPoKatNomer(string kat_nomer)
+{
+  for(int i = 0; i < broi_lekarstva; i++)
+    if (kat_nomer == m[i].GetKatNomer())
+      return i;
+  return -1;
+}
 
 
 // int CApteka::IsInUchSustav(long int egn)
@@ -63,69 +64,62 @@ void CApteka::PrintLekarstva()
     m[i].Print();
 }
 
-// void CApteka::DeleteUchitel()
-// {
-//   long int egn;
-//   cout<<"Въведете ЕГН на учител: ";
-//   cin>>egn;
-
-//   if(IsInUchSustav(egn) != -1) {
-//     CLekasrtvo *p = m;
-//     m = new CLekasrtvo[broi_lekarstva - 1];
-
-//     int j, i;
-//     for(j = 0, i = 0; i < broi_lekarstva; i++)
-//       if(p[i].EGN() != egn)
-//         m[j++] = p[i];
-//     broi_lekarstva--;
-//     delete []p;
-//   }
-//   else {
-//     cout<<"Не беше намерен учител по въведеното ЕГН!";
-//   }
-// }
-
-// void CApteka::PrintUchiteliPoDisciplina()
-// {
-//   string disciplina;
-//   cout<<"Въведете дисциплина: ";
-//   cin.ignore();
-//   getline(cin,disciplina);
-
-//   int namereniUchiteli = 0;
-//   for(int i = 0; i < broi_lekarstva; i++)
-//     if(m[i].Disciplina() == disciplina) {
-//       m[i].Print();
-//       namereniUchiteli = 1;
-//     }
-//   if(namereniUchiteli == 0) {
-//     cout<<"Не бяха намерени учители по въведената дисциплина!"<<endl;
-//   }
-// }
-
-// void CApteka::PrintDiscplinaPoStaj()
-// {
-//   CLekasrtvo uchitel("", 0, 0, "", 0);
-// 	for(int i = 0; i < broi_lekarstva; i++) {
-// 		if(m[i] > uchitel) {
-//       uchitel = m[i];
-//     }
-//   }
-//   if(uchitel.Disciplina() != "")
-//     uchitel.Print();
-//   else
-//     cout<<"Не беше намерен учител!";
-// }
-
-
-void CApteka::DummyData()
+void CApteka::DeleteLekarstvo()
 {
-  m = new CLekasrtvo[6];
-  m[0] = CLekasrtvo("Беналгин",         "123саасд3", "Блистери",  1.2, 2);
-  m[1] = CLekasrtvo("Спазмалгон",       "672345asd", "Таблетки",  3.2, 10);
-  m[2] = CLekasrtvo("Иберогаст",        "23423са24", "Ампулички", 0.5, 10);
-  m[3] = CLekasrtvo("Салофалк",         "090909808", "Свещички",  12.2, 6);
-  m[4] = CLekasrtvo("Авирон рапид",     "673457634", "Таблетки",  5.5,  6);
-  m[5] = CLekasrtvo("Ангал спрей",      "23478асд3", "Ампулички", 23,  16);
-  broi_lekarstva = 6;
+  string kat_nomer;
+  cout<<"Въведете каталожен номер на лекарство: ";
+  cin.ignore(cin.rdbuf()->in_avail());//игнорира паразитните Ентъри
+  getline(cin,kat_nomer);
+
+  if(NameriPoKatNomer(kat_nomer) != -1) {
+    CLekasrtvo *p = m;
+    m = new CLekasrtvo[broi_lekarstva - 1];
+
+    int j, i;
+    for(j = 0, i = 0; i < broi_lekarstva; i++)
+      if(p[i].GetKatNomer() != kat_nomer)
+        m[j++] = p[i];
+    broi_lekarstva--;
+    delete []p;
+  }
+  else
+    cout<<"Няма намерено лекарсвто по този каталожен номер!";
 }
+
+void CApteka::PrintLekarstvaPodCena()
+{
+  float cena;
+  cout<<"Въведете цена за да покажем всички лекарства, които са под нея: ";
+  cin>>cena;
+
+  int namereniLekarstva = 0;
+  for(int i = 0; i < broi_lekarstva; i++)
+    if(cena > m[i].GetCena()) {
+      m[i].Print();
+        namereniLekarstva++;
+    }
+  if(namereniLekarstva == 0)
+    cout<<"Не бяха намерени лекарства под въведената цена!"<<endl;
+}
+
+void CApteka::PrintNaiEvtinoLekarstvo()
+{
+  string ime;
+  cout<<"Въведете име на лекарство: ";
+  cin.ignore(cin.rdbuf()->in_avail());//игнорира паразитните Ентъри
+  getline(cin,ime);
+
+  int max_cena = 10000;
+  CLekasrtvo lekarstvo(ime, "", "", max_cena, 0);
+	for(int i = 0; i < broi_lekarstva; i++) {
+    if(m[i].GetIme() == ime)
+      if(lekarstvo > m[i] )
+        lekarstvo = m[i];
+  }
+
+  if(lekarstvo.GetCena() != max_cena)
+    cout<<lekarstvo.GetKatNomer();
+  else
+    cout<<"Не беше намерено такова лекарство"<<endl;
+}
+

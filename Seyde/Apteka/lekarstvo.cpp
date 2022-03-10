@@ -25,20 +25,14 @@ CLekasrtvo::CLekasrtvo(string i, string kat, string r, float c, int kol)
 void CLekasrtvo::Add()
 {
   cout<<"Въведете име на лекарството: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1);//игнорира паразитните Ентъри
+  cin.ignore(cin.rdbuf()->in_avail());//игнорира паразитните Ентъри
   getline(cin,ime);
-
   cout<<"Въведете каталожен номер: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1);//игнорира паразитните Ентъри
   getline(cin,kat_nomer);
-
   cout<<"Въведете вид разфасовка(пример: ампули, блистери, дражета, таблетки): ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1);//игнорира паразитните Ентъри
   getline(cin,razfasovka);
-
   cout<<"Въведете цена: ";
   cin>>cena;
-
   cout<<"Въведете количество: ";
   cin>>kolichestvo;
 }

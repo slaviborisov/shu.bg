@@ -12,14 +12,11 @@ class CApteka {
   public:
     CApteka();
     CApteka(string);
+    int NameriPoKatNomer(string); // Метод за проверка на налично лекарство по кат. номер
     void Addlekarstvo(); // Метод за добавяне на ново лекарство в аптеката
     void PrintLekarstva(); // Метод за показване на всички лекарства в аптеката
-    // void PrintVsichkiLekarstva(); // Метод за отпечатване на учителския състав
-    // void DeleteUchitel(); // Метод за изтриване на учител по ЕГН
-    // int IsInUchSustav(string); // Метод за проверка на съществуващ учител по Име
-    // int IsInUchSustav(long int); // Метод за проверка на съществуващ учител по ЕГН
-    // void PrintUchiteliPoDisciplina(); // Метод за отпечатване на учителите, които преподават зададената дисциплина
-    // void PrintDiscplinaPoStaj(); // Метод за отпечатване на водената дисциплина на учителя с най-голям стаж
+    void DeleteLekarstvo(); // Метод за изтриване на лекарство по кат. номер
+    void PrintLekarstvaPodCena(); // Намери всички лекарсвта под въведена цена
+    void PrintNaiEvtinoLekarstvo(); // Показва кат. номер на най-евтиното лекарство по въведено име
     ~CApteka() { delete []m; } // Деструктор: изтрива динамично заделената памет
-    void DummyData();
 };
