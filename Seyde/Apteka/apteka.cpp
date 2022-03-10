@@ -7,7 +7,7 @@ CApteka::CApteka()
 {
   m = NULL;
   broi_lekarstva = 0;
-  cout<< "Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° РђРїС‚РµРєР°: ";
+  cout<< "Въведете име на Аптека: ";
   getline(cin,ime);
 }
 
@@ -50,7 +50,7 @@ void CApteka::Addlekarstvo()
 // void CApteka::PrintUchitel()
 // {
 //   string ime;
-//   cout<<"Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° СѓС‡РёС‚РµР»: ";
+//   cout<<"Въведете име на учител: ";
 //   cin>>ime;
 
 //   int n = IsInUchSustav(ime);
@@ -67,8 +67,8 @@ void CApteka::PrintLekarstva()
 void CApteka::DeleteLekarstvo()
 {
   string kat_nomer;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РєР°С‚Р°Р»РѕР¶РµРЅ РЅРѕРјРµСЂ РЅР° Р»РµРєР°СЂСЃС‚РІРѕ: ";
-  cin.ignore(cin.rdbuf()->in_avail());//РёРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете каталожен номер на лекарство: ";
+  cin.ignore(cin.rdbuf()->in_avail());//игнорира паразитните Ентъри
   getline(cin,kat_nomer);
 
   if(NameriPoKatNomer(kat_nomer) != -1) {
@@ -83,13 +83,13 @@ void CApteka::DeleteLekarstvo()
     delete []p;
   }
   else
-    cout<<"РќСЏРјР° РЅР°РјРµСЂРµРЅРѕ Р»РµРєР°СЂСЃРІС‚Рѕ РїРѕ С‚РѕР·Рё РєР°С‚Р°Р»РѕР¶РµРЅ РЅРѕРјРµСЂ!";
+    cout<<"Няма намерено лекарсвто по този каталожен номер!";
 }
 
 void CApteka::PrintLekarstvaPodCena()
 {
   float cena;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ С†РµРЅР° Р·Р° РґР° РїРѕРєР°Р¶РµРј РІСЃРёС‡РєРё Р»РµРєР°СЂСЃС‚РІР°, РєРѕРёС‚Рѕ СЃР° РїРѕРґ РЅРµСЏ: ";
+  cout<<"Въведете цена за да покажем всички лекарства, които са под нея: ";
   cin>>cena;
 
   int namereniLekarstva = 0;
@@ -99,14 +99,14 @@ void CApteka::PrintLekarstvaPodCena()
         namereniLekarstva++;
     }
   if(namereniLekarstva == 0)
-    cout<<"РќРµ Р±СЏС…Р° РЅР°РјРµСЂРµРЅРё Р»РµРєР°СЂСЃС‚РІР° РїРѕРґ РІСЉРІРµРґРµРЅР°С‚Р° С†РµРЅР°!"<<endl;
+    cout<<"Не бяха намерени лекарства под въведената цена!"<<endl;
 }
 
 void CApteka::PrintNaiEvtinoLekarstvo()
 {
   string ime;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° Р»РµРєР°СЂСЃС‚РІРѕ: ";
-  cin.ignore(cin.rdbuf()->in_avail());//РёРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете име на лекарство: ";
+  cin.ignore(cin.rdbuf()->in_avail());//игнорира паразитните Ентъри
   getline(cin,ime);
 
   int max_cena = 10000;
@@ -120,6 +120,6 @@ void CApteka::PrintNaiEvtinoLekarstvo()
   if(lekarstvo.GetCena() != max_cena)
     cout<<lekarstvo.GetKatNomer();
   else
-    cout<<"РќРµ Р±РµС€Рµ РЅР°РјРµСЂРµРЅРѕ С‚Р°РєРѕРІР° Р»РµРєР°СЂСЃС‚РІРѕ"<<endl;
+    cout<<"Не беше намерено такова лекарство"<<endl;
 }
 
