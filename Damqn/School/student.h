@@ -5,13 +5,13 @@ using namespace std;
 class CStudent
 {
   private:
-  string name; // РРјРµ
-  int grade; // РљР»Р°СЃ
-  string section; // РџР°СЂР°Р»Р°Р»РµРєР°
-  int number; // РќРѕРјРµСЂ РІ РєР»Р°СЃР°
-  int age; // Р’СЉР·СЂР°СЃС‚
-  int height; // Р СЉСЃС‚
-  int weight; // РўРµРіР»Рѕ
+  string name; // Име
+  int grade; // Клас
+  string section; // Паралалека
+  int number; // Номер в класа
+  int age; // Възраст
+  int height; // Ръст
+  int weight; // Тегло
 
   public:
     CStudent();
@@ -22,7 +22,7 @@ class CStudent
     int GetNumber() { return number; }
     int GetAge() { return age; }
     int GetWeight() { return weight; }
-    int operator>(CStudent); // РџСЂРµРґРµС„РёРЅРёСЂР°РЅРµ РЅР° РѕРїРµСЂР°С‚РѕСЂ >
-    void Add(); // MРµС‚РѕРґ Р·Р° РґРѕР±Р°РІСЏРЅРµ РЅР° РЅРѕРІ СѓС‡РµРЅРёРє
-    void Print(); // MРµС‚РѕРґ Р·Р° РѕС‚РїРµС‡Р°С‚РІР°РЅРµ РЅР° СѓС‡РµРЅРёРє
+    int operator>(CStudent); // Предефиниране на оператор >
+    void Add(); // Mетод за добавяне на нов ученик
+    void Print(); // Mетод за отпечатване на ученик
 };

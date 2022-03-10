@@ -20,5 +20,5 @@ class CSchool {
     void StudentsLessThanWeight();
     void TheHeaviestStudent();
     void DummyData();
-    ~CSchool() { delete []m; } //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+    ~CSchool() { delete []m; } //деструктор
 };

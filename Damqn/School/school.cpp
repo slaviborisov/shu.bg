@@ -7,7 +7,7 @@ CSchool::CSchool()
 {
 	m = NULL;
   total_students = 0;
-  cout<< "Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° СѓС‡РёР»РёС‰Рµ: ";
+  cout<< "Въведете име на училище: ";
   getline(cin,school_name);
 }
 
@@ -38,16 +38,16 @@ void CSchool::PrintAllStudents()
 void CSchool::PrintStudentByParams()
 {
   int grade;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РєР»Р°СЃ РЅР° СѓС‡РµРЅРёРєР°: ";
+  cout<<"Въведете клас на ученика: ";
   cin>>grade;
 
   string section;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РїР°СЂР°Р»РµР»РєР° РЅР° СѓС‡РµРЅРёРєР°: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1); //РРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете паралелка на ученика: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,section);
 
   int number;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РЅРѕРјРµСЂ РЅР° СѓС‡РµРЅРёРєР°: ";
+  cout<<"Въведете номер на ученика: ";
   cin>>number;
 
   bool hasStudent = false;
@@ -58,14 +58,14 @@ void CSchool::PrintStudentByParams()
     }
 
   if(hasStudent == false) {
-    cout<<"РќРµ РЅР°РјРµСЂРёС…РјРµ СѓС‡РµРЅРёРє!"<<endl;
+    cout<<"Не намерихме ученик!"<<endl;
   }
 }
 
 void CSchool::StudentsLessThanAge()
 {
   int age;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РІСЉР·СЂР°СЃС‚ РЅР° СѓС‡РµРЅРёРєР°: ";
+  cout<<"Въведете възраст на ученика: ";
   cin>>age;
   for(int i = 0; i < total_students; i++)
     if(age > m[i].GetAge() )
@@ -75,7 +75,7 @@ void CSchool::StudentsLessThanAge()
 void CSchool::StudentsLessThanWeight()
 {
   int weight;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ С‚РµРіР»Рѕ: ";
+  cout<<"Въведете тегло: ";
   cin>>weight;
   for(int i = 0; i < total_students; i++)
     if(weight > m[i].GetWeight() )
@@ -85,24 +85,24 @@ void CSchool::StudentsLessThanWeight()
 void CSchool::TheHeaviestStudent()
 {
   int grade;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РєР»Р°СЃ: ";
+  cout<<"Въведете клас: ";
   cin>>grade;
   CStudent student("", 0, "", 0, 0, 0, grade);
   for(int i = 0; i < total_students; i++)
     if(grade == m[i].GetGrade() )
       if(m[i] > student)
         student = m[i];
-  cout<<"РќР°Р№-С‚РµР¶РєРёСЏС‚ СѓС‡РµРЅРёРє Рµ: "<<student.GetName()<<endl;
+  cout<<"Най-тежкият ученик е: "<<student.GetName()<<endl;
 }
 
 void CSchool::DummyData()
 {
   m = new CStudent[6];
-  m[0] = CStudent("РЈС‡РµРЅРёРє 1", 4, "Рђ", 1, 12, 130, 35);
-  m[1] = CStudent("РЈС‡РµРЅРёРє 2", 4, "Рђ", 2, 12, 145, 45);
-  m[2] = CStudent("РЈС‡РµРЅРёРє 3", 4, "Рђ", 5, 13, 150, 40);
-  m[3] = CStudent("РЈС‡РµРЅРёРє 1", 7, "Рђ", 1, 15, 160, 67);
-  m[4] = CStudent("РЈС‡РµРЅРёРє 2", 7, "Рђ", 2, 15, 162, 52);
-  m[5] = CStudent("РЈС‡РµРЅРёРє 2", 7, "Р‘", 1, 15, 159, 50);
+  m[0] = CStudent("Ученик 1", 4, "А", 1, 12, 130, 35);
+  m[1] = CStudent("Ученик 2", 4, "А", 2, 12, 145, 45);
+  m[2] = CStudent("Ученик 3", 4, "А", 5, 13, 150, 40);
+  m[3] = CStudent("Ученик 1", 7, "А", 1, 15, 160, 67);
+  m[4] = CStudent("Ученик 2", 7, "А", 2, 15, 162, 52);
+  m[5] = CStudent("Ученик 2", 7, "Б", 1, 15, 159, 50);
   total_students = 6;
 }
