@@ -9,12 +9,13 @@ class CAnimal
     string name; // име на животното
     int age; // въззраст на животното
     int sex; // пол на животното
+    string kind; // вид животно
     int food_type; // вид храна
     float food_amount; // количество храна
 
   public:
     CAnimal();
-    CAnimal(string, string, int, int, int, float);
+    CAnimal(string, string, int, int, string, int, float);
     int operator>(CAnimal); //предефиниране на оператор <
     void Add(); //добавяне на ново животно
     void Print(); //отпечатване на животно
@@ -22,9 +23,9 @@ class CAnimal
     string GetName() { return name; }
     int GetAge() { return age; }
     int GetSex() { return sex; }
+    string GetKind() { return kind; }
     int GetFoodType() { return food_type; }
     int GetFoddAmount() {return food_amount; }
-    int operator<(CAnimal); //предефиниране на оператор <
 };
 
 
@@ -45,6 +46,5 @@ class CAnimal
 // -	добавяне на ново животно;
 // -	по регистрационен номер изтрива животно от масива.
 // -	метод, който по по даден животински вид отпечатва имената и възрастта на всички животни от този вид;
-// -	метод, който по даден вид храна и цена и отпечатва сумата, необходима за дневната прехрана на всички животни, които приемат този вид храна.
 // -	метод, който по по даден животински вид отпечатва данните на най-възрастното животно от този вид.
 //  (използвайте предеф. операция ‘>’)

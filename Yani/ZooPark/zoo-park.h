@@ -12,13 +12,12 @@ class CZooPark {
   public:
     CZooPark();
     CZooPark(string);
+    int FindAnimalByRegNumber(string); // намира животно по рег. номер
     void AddAnimal(); // добавя ново животно
     void PrintAnimals(); // показва всички животни
-    // int NameriKolaPoRegNomer(string); //намира кола по рег. номер
-    // void PrintKolaPoRegNomer(); //показва кола по рег. номер
-    // void DeleteKola(); //изтрива кола по регистрационен номер
-    // void PrintKoliPoSobstvenik();
-    // void PrintNaiStaraKola();
+    void DeleteAnimal(); // изтрива животно по рег. номер
+    void GetAnimalsByKind(); // показва имената и възрастта животните от даден вид
+    void PrintTheOldestAnimal(); // показва най-старото животно от даден вид
     void DummyData();
     ~CZooPark() { delete []m; } //деструктор
 };
