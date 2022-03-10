@@ -14,7 +14,7 @@ int main()
     cout<<"3. Показване на всички коли регистрирани в КАТ \n";
     cout<<"4. Изтриване на кола по регистрационен номер \n";
     cout<<"5. Покажи всички коли по име на собсветник \n";
-    cout<<"6. Намери най-старата кола по марка и цвят \n";
+    // cout<<"6. Намери най-старата кола по марка и цвят \n";
     cout<<"10. Автоматично генериране на данни \n";
     cin >> c;
     switch(c)
@@ -25,7 +25,7 @@ int main()
       case 3: kat.PrintVsichkiKoli(); break;
       case 4: kat.DeleteKola(); break;
       case 5: kat.PrintKoliPoSobstvenik(); break;
-      case 6: kat.PrintNaiStaraKola(); break;
+      // case 6: kat.PrintNaiStaraKola(); break;
 	    case 10: kat.DummyData(); break;
       default: cout << "Грешен избор!"<<endl; break;
     }

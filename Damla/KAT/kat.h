@@ -13,11 +13,11 @@ class CKat {
     CKat();
     CKat(string);
     void AddKola(); //добавя новa кола
-    void PrintKolaPoRegNomer(); //показва всички коли
-    void PrintVsichkiKoli();
-    int NameriKolaPoRegNomer(string); //намира кола по регистрационен номер
+    int NameriKolaPoRegNomer(string); //намира кола по рег. номер
+    void PrintKolaPoRegNomer(); //показва кола по рег. номер
+    void PrintVsichkiKoli(); //показва всички коли
     void DeleteKola(); //изтрива кола по регистрационен номер
-    void PrintPoSobstvenik();
+    void PrintKoliPoSobstvenik();
     void PrintNaiStaraKola();
     void DummyData();
     ~CKat() { delete []m; } //деструктор
