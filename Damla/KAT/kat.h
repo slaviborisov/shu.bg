@@ -5,20 +5,20 @@ using namespace std;
 
 class CKat {
   private:
-    int broi_koli; //РѕР±С‰ Р±СЂРѕР№ СЂРµРіРёСЃС‚СЂРёСЂР°РЅРё Р°РІС‚РѕРјРѕР±РёР»Рё
-    string name;// РёРјРµ РЅР° РљРђРў
-    CKola *m;// СѓРєР°Р·Р°С‚РµР»
+    int broi_koli; //общ брой регистрирани автомобили
+    string name;// име на КАТ
+    CKola *m;// указател
 
   public:
     CKat();
     CKat(string);
-    void AddKola(); //РґРѕР±Р°РІСЏ РЅРѕРІa РєРѕР»Р°
-    int NameriKolaPoRegNomer(string); //РЅР°РјРёСЂР° РєРѕР»Р° РїРѕ СЂРµРі. РЅРѕРјРµСЂ
-    void PrintKolaPoRegNomer(); //РїРѕРєР°Р·РІР° РєРѕР»Р° РїРѕ СЂРµРі. РЅРѕРјРµСЂ
-    void PrintVsichkiKoli(); //РїРѕРєР°Р·РІР° РІСЃРёС‡РєРё РєРѕР»Рё
-    void DeleteKola(); //РёР·С‚СЂРёРІР° РєРѕР»Р° РїРѕ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРµРЅ РЅРѕРјРµСЂ
+    void AddKola(); //добавя новa кола
+    int NameriKolaPoRegNomer(string); //намира кола по рег. номер
+    void PrintKolaPoRegNomer(); //показва кола по рег. номер
+    void PrintVsichkiKoli(); //показва всички коли
+    void DeleteKola(); //изтрива кола по регистрационен номер
     void PrintKoliPoSobstvenik();
     void PrintNaiStaraKola();
     void DummyData();
-    ~CKat() { delete []m; } //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+    ~CKat() { delete []m; } //деструктор
 };

@@ -7,7 +7,7 @@ CKat::CKat()
 {
 	m = NULL;
   broi_koli = 0;
-  cout<< "Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° РљРђРў: ";
+  cout<< "Въведете име на КАТ: ";
   getline(cin,name);
 }
 
@@ -39,13 +39,13 @@ int CKat::NameriKolaPoRegNomer(string reg_nomer)
 void CKat::PrintKolaPoRegNomer()
 {
   string reg_number;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРµРЅ РЅРѕРјРµСЂ РЅР° РєРѕР»Р°С‚Р°: ";
+  cout<<"Въведете регистрационен номер на колата: ";
   cin>>reg_number;
 
   int n = NameriKolaPoRegNomer(reg_number);
   if(n != -1)
     m[n].Print();
-  else cout<<"РќСЏРјР° РІСЉРІРµРґРµРЅР° РєРѕР»Р° СЃ С‚РѕР·Рё СЂРµРі. РЅРѕРјРµСЂ! \n";
+  else cout<<"Няма въведена кола с този рег. номер! \n";
 }
 
 void CKat::PrintVsichkiKoli()
@@ -57,7 +57,7 @@ void CKat::PrintVsichkiKoli()
 void CKat::DeleteKola()
 {
   string reg_number;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРµРЅ РЅРѕРјРµСЂ РЅР° РєРѕР»Р°С‚Р°: ";
+  cout<<"Въведете регистрационен номер на колата: ";
   cin>>reg_number;
 
   if(NameriKolaPoRegNomer(reg_number) != -1) {
@@ -72,14 +72,14 @@ void CKat::DeleteKola()
     delete []p;
   }
   else
-    cout<<"РќСЏРјР° РІСЉРІРµРґРµРЅР° РєРѕР»Р° СЃ С‚РѕР·Рё СЂРµРі. РЅРѕРјРµСЂ! \n";
+    cout<<"Няма въведена кола с този рег. номер! \n";
 }
 
 void CKat::PrintKoliPoSobstvenik()
 {
   string sobstvenik;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° СЃРѕР±СЃС‚РІРµРЅРёРє: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1); //РРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете име на собственик: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,sobstvenik);
 
   bool namereni_koli = false;
@@ -89,18 +89,29 @@ void CKat::PrintKoliPoSobstvenik()
       namereni_koli = true;
 
   if(namereni_koli == false)
-    cout<<"РќСЏРјР° РЅР°РјРµСЂРµРЅРё РєРѕР»Рё РЅР° С‚РѕР·Рё СЃРѕР±СЃС‚РІРµРЅРёРє \n";
+    cout<<"Няма намерени коли на този собственик \n";
 }
 
 
-void CKat::DummyData()
+void CKat::PrintNaiStaraKola()
 {
-  m = new CKola[8];
-  m[0] = CKola("Mazda", "С‡РµСЂРµРЅ",  "РЎР’2157Р Р’", 2017, "РЎР»Р°РІРё Р‘РѕСЂРёСЃРѕРІ");
-  m[1] = CKola("РљРРђ",   "С‡РµСЂРІРµРЅ", "983Рђ45РђРђ", 1991, "РњРёРјРё");
-  m[2] = CKola("Nisan", "С‡РµСЂРµРЅ",  "РђРЎР”3243РЎ", 1999, "Р–РѕСЂРѕ");
-  m[3] = CKola("BMW",   "С‡РµСЂРµРЅ",  "РљР™РЎР¤РЎР”Р¤4", 2022, "РџРµС€Рѕ");
-  m[4] = CKola("Subaru", "С‡РµСЂРµРЅ", "34РђР”Р”Рђ34", 2015, "РЎР»Р°РІРё Р‘РѕСЂРёСЃРѕРІ");
-  m[5] = CKola("Honda",  "С‡РµСЂРµРЅ", "Р™РќРђРЎР”4РђРЎ", 2022, "Р“РѕС€Рѕ");
-  broi_koli = 8;
+  string marka;
+  cout<<"Въведете марка на колата: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
+  getline(cin,marka);
+
+  string cvqt;
+  cout<<"Въведете цвят на колата: ";
+  getline(cin,cvqt);
+
+  CKola kola(marka, cvqt,  "", 2023, "");
+  int nai_stara_kola = 0;
+  for(int i = 0; i < broi_koli; i++)
+    if(m[i].GetMarka() == marka && m[i].GetCvqt() == cvqt)
+      if(m[i] < kola)
+        kola = m[i];
+  if(kola.GetRegNomer() != "")
+    kola.Print();
+  else
+    cout<<"Не беше намерена кола по-стара от 2023год. \n";
 }

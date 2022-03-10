@@ -13,14 +13,7 @@ CKola::CKola()
   sobstvenik = "";
 }
 
-CKola::CKola
-(
-  string m,
-  string c,
-  string r,
-  int g,
-  string s
-)
+CKola::CKola(string m, string c, string r, int g, string s)
 {
   marka = m;
   cvqt = c;
@@ -36,21 +29,21 @@ int CKola::operator<(CKola kola)
 
 void CKola::Add()
 {
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РјР°СЂРєР° РЅР° Р°РІС‚РѕРјРѕР±РёР»Р°: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1); //РРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете марка на автомобила: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,marka);
 
-  cout<<"Р’СЉРІРµРґРµС‚Рµ С†РІСЏС‚ РЅР° Р°РІС‚РѕРјРѕР±РёР»Р°: ";
+  cout<<"Въведете цвят на автомобила: ";
   getline(cin,cvqt);
 
-  cout<<"Р’СЉРІРµРґРµС‚Рµ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРµРЅ РЅРѕРјРµСЂ РЅР° Р°РІС‚РѕРјРѕР±РёР»Р°: ";
+  cout<<"Въведете регистрационен номер на автомобила: ";
   getline(cin,reg_nomer);
 
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РіРѕРґРёРЅР° РЅР° РїСЂРѕРёР·РІРѕРґСЃС‚РІРѕ: ";
+  cout<<"Въведете година на производство: ";
   cin>>godina;
 
-  cout<<"Р’СЉРІРµРґРµС‚Рµ СЃРѕР±СЃС‚РІРµРЅРёРє: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1); //РРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете собственик: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,sobstvenik);
 }
 
