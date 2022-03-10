@@ -27,14 +27,6 @@ int CApteka::NameriPoKatNomer(string kat_nomer)
   return -1;
 }
 
-
-// int CApteka::IsInUchSustav(long int egn)
-// {
-//   for(int i = 0; i < broi_lekarstva; i++)
-//     if (egn == m[i].EGN()) return i;
-//   return -1;
-// }
-
 void CApteka::Addlekarstvo()
 {
   CLekasrtvo *p = m;
@@ -46,17 +38,6 @@ void CApteka::Addlekarstvo()
   m[broi_lekarstva -1].Add();
   delete []p;
 }
-
-// void CApteka::PrintUchitel()
-// {
-//   string ime;
-//   cout<<"Въведете име на учител: ";
-//   cin>>ime;
-
-//   int n = IsInUchSustav(ime);
-//   if(n != -1)
-//     m[n].Print();
-// }
 
 void CApteka::PrintLekarstva()
 {
