@@ -7,7 +7,7 @@ CZooPark::CZooPark()
 {
 	m = NULL;
   count_animals = 0;
-  cout<< "Р’СЉРІРµРґРµС‚Рµ РёРјРµ РЅР° Р—РѕРѕР»РѕРіРёС‡РµСЃРєР° РіСЂР°РґРёРЅР°: ";
+  cout<< "Въведете име на Зоологическа градина: ";
   getline(cin,name);
 }
 
@@ -45,7 +45,7 @@ void CZooPark::PrintAnimals()
 void CZooPark::DeleteAnimal()
 {
   string reg_number;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРµРЅ РЅРѕРјРµСЂ РЅР° Р¶РёРІРѕС‚РЅРѕ: ";
+  cout<<"Въведете регистрационен номер на животно: ";
   cin>>reg_number;
 
   if(FindAnimalByRegNumber(reg_number) != -1) {
@@ -60,14 +60,14 @@ void CZooPark::DeleteAnimal()
     delete []p;
   }
   else
-    cout<<"РќСЏРјР° РІСЉРІРµРґРµРЅР° Р¶РёРІРѕС‚РЅРѕ СЃ С‚РѕР·Рё СЂРµРі. РЅРѕРјРµСЂ! \n";
+    cout<<"Няма въведена животно с този рег. номер! \n";
 }
 
 void CZooPark::GetAnimalsByKind()
 {
   string kind;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РІРёРґ РЅР° Р¶РёРІРѕС‚РЅРѕ: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1); //РРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете вид на животно: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,kind);
 
   for(int i = 0; i < count_animals; i++)
@@ -78,8 +78,8 @@ void CZooPark::GetAnimalsByKind()
 void CZooPark::PrintTheOldestAnimal()
 {
   string kind;
-  cout<<"Р’СЉРІРµРґРµС‚Рµ РІРёРґ РЅР° Р¶РёРІРѕС‚РЅРѕ: ";
-  cin.ignore(cin.rdbuf()->in_avail() + 1); //РРіРЅРѕСЂРёСЂР° РїР°СЂР°Р·РёС‚РЅРёС‚Рµ Р•РЅС‚СЉСЂРё
+  cout<<"Въведете вид на животно: ";
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,kind);
 
   CAnimal animal("", "", 0, 0, kind, 0, 0);
@@ -91,18 +91,6 @@ void CZooPark::PrintTheOldestAnimal()
   if(animal.GetName() != "")
     animal.Print();
   else
-    cout<<"РќРµ Р±РµС€Рµ РЅР°РјРµСЂРµРЅРѕ Р¶РёРІРѕС‚РЅРѕ \n";
-}
-
-void CZooPark::DummyData()
-{
-  m = new CAnimal[6];
-  m[0] = CAnimal("123456", "Р–РѕСЂРѕ",   82, 0, "РЎР»РѕРЅ",    0, 60.5);
-  m[1] = CAnimal("786234", "РџРµС‰Рѕ",   33, 1, "РќРѕСЃРѕСЂРѕРі", 0, 44.7);
-  m[2] = CAnimal("098023", "Р“РѕС€Рѕ",   14, 1, "РўРёРіСЉСЂ",   1, 30.1);
-  m[3] = CAnimal("234845", "РЎР»Р°РІРєР°", 6,  1, "Р›СЉРІ",     1, 15);
-  m[4] = CAnimal("675234", "Р–РµРЅРё",   6,  0, "РўРёРіСЉСЂ",   1, 20);
-  m[5] = CAnimal("123456", "РњРёРјРё",   1,  0, "РЎСЉСЂРЅР°",   0, 1);
-  count_animals = 6;
+    cout<<"Не беше намерено животно \n";
 }
 

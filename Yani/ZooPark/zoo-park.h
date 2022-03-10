@@ -5,20 +5,19 @@ using namespace std;
 
 class CZooPark {
   private:
-    int count_animals; // Р±СЂРѕР№ Р¶РёРІРѕС‚РЅРё РІ Р·РѕРѕР»РѕРіРёС‡РµСЃРєР°С‚Р° РіСЂР°РґРёРЅР°
-    string name; // РёРјРµ РЅР° РЅР° Р·РѕРѕР»РѕРіРёС‡РµСЃРєР° РіСЂР°РґРґРёРЅР°
-    CAnimal *m; // СѓРєР°Р·Р°С‚РµР»
+    int count_animals; // брой животни в зоологическата градина
+    string name; // име на на зоологическа граддина
+    CAnimal *m; // указател
 
   public:
     CZooPark();
     CZooPark(string);
-    int FindAnimalByRegNumber(string); // РЅР°РјРёСЂР° Р¶РёРІРѕС‚РЅРѕ РїРѕ СЂРµРі. РЅРѕРјРµСЂ
-    void AddAnimal(); // РґРѕР±Р°РІСЏ РЅРѕРІРѕ Р¶РёРІРѕС‚РЅРѕ
-    void PrintAnimals(); // РїРѕРєР°Р·РІР° РІСЃРёС‡РєРё Р¶РёРІРѕС‚РЅРё
-    void DeleteAnimal(); // РёР·С‚СЂРёРІР° Р¶РёРІРѕС‚РЅРѕ РїРѕ СЂРµРі. РЅРѕРјРµСЂ
-    void GetAnimalsByKind(); // РїРѕРєР°Р·РІР° РёРјРµРЅР°С‚Р° Рё РІСЉР·СЂР°СЃС‚С‚Р° Р¶РёРІРѕС‚РЅРёС‚Рµ РѕС‚ РґР°РґРµРЅ РІРёРґ
-    void PrintTheOldestAnimal(); // РїРѕРєР°Р·РІР° РЅР°Р№-СЃС‚Р°СЂРѕС‚Рѕ Р¶РёРІРѕС‚РЅРѕ РѕС‚ РґР°РґРµРЅ РІРёРґ
-    void DummyData();
-    ~CZooPark() { delete []m; } //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+    int FindAnimalByRegNumber(string); // намира животно по рег. номер
+    void AddAnimal(); // добавя ново животно
+    void PrintAnimals(); // показва всички животни
+    void DeleteAnimal(); // изтрива животно по рег. номер
+    void GetAnimalsByKind(); // показва имената и възрастта животните от даден вид
+    void PrintTheOldestAnimal(); // показва най-старото животно от даден вид
+    ~CZooPark() { delete []m; } //деструктор
 };
 
