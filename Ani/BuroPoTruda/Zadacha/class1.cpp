@@ -8,7 +8,7 @@ Class1::Class1()
   nomer1 = 0;
   text1 = "";
   nomer2 = 0;
-  text2 = "тест";
+  text2 = "";
 }
 
 Class1::Class1(int n1, string t1, int n2, string t2 )
