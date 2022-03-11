@@ -14,3 +14,10 @@ Class2::Class2(int n1, string t1 )
   nomer1 = n1;
   text1 = t1;
 }
+
+  void Class2::AddSomething()
+  {
+    string something;
+    cout<<"Въвдете нещо: ";
+    cin>>something;
+  }

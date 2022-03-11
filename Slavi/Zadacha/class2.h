@@ -13,4 +13,5 @@ class Class2
     Class2(); //конструктор по подразбиране
     Class2(int, string); //конструктор с параметри
     int operator>(Class1); //Предефиниране на оператор >
+    void AddSomething(); // добави нещо
 };
