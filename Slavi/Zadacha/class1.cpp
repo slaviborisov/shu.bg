@@ -5,21 +5,32 @@ using namespace std;
 
 Class1::Class1()
 {
-  nomer1 = 0;
-  text1 = "";
-  nomer2 = 0;
-  text2 = "";
+  number = 0;
+  text = "";
 }
 
-Class1::Class1(int n1, string t1, int n2, string t2 )
+Class1::Class1(int n, string t)
 {
-  nomer1 = n1;
-  text1 = t1;
-  nomer2 = n2;
-  text2 = t2;
+  number = n;
+  text = t;
 }
 
 int Class1::operator>(Class1 myclass)
 {
-  return (this->nomer1 > myclass.nomer1);
+  return (this->number > myclass.number);
+}
+
+void Class1::Add()
+{
+  cout<<"Въведете : ";
+  cin>>number;
+
+  cout<<"Въведете : ";
+  cin.ignore(cin.rdbuf()->in_avail() + 1); //игнорира паразитните Ентъри
+  getline(cin,text);
+}
+
+void Class1::Print()
+{
+  cout<<number<<"\t"<<text<<endl;
 }
