@@ -2,11 +2,7 @@
 #include <string>
 using namespace std;
 
-
-
-class Movie
-{
-  private:
+struct MovieData {
   int unique_id; // уникален номер
   int media_type; // тип на носител (Видеокасета, DVD)
   int status; // Статус (Свободна, Заета)
@@ -14,14 +10,20 @@ class Movie
   float price; // Цена
   string name; // Име на филм
   string director; // Режисьор
+};
+
+class Movie
+{
+  private:
+    MovieData data;
 
   public:
     Movie();
-    Movie(int, int, int, float, unsigned, string, string);
-    int GetID() { return unique_id; }
+    Movie(MovieData data);
+    int GetID() { return data.unique_id; }
     int operator>(Movie); //предефиниране на оператор >
-    int GetMediaType() { return media_type; }
+    int GetMediaType() { return data.media_type; }
     void Add(int); // метод за добавяне на нов филм
     void PrintData(); // метод за отпечатване на информацията на обект от този клас?
-    string GetDirector() { return director; }
+    string GetDirector() { return data.director; }
 };

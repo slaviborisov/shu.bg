@@ -9,77 +9,64 @@ string statuses[2]    = { "Свободна", "Заета" };
 
 Movie::Movie()
 {
-  unique_id  = 0;
-  media_type = 0;
-  status     = 0;
-  year       = 0;
-  price      = 0;
-  name       = "";
-  director   = "";
+  data.unique_id  = 0;
+  data.media_type = 0;
+  data.status     = 0;
+  data.year       = 0;
+  data.price      = 0;
+  data.name       = "";
+  data.director   = "";
 }
 
-Movie::Movie(
-  int _unique_id,
-  int _media_type,
-  int _status,
-  float _price,
-  unsigned _year,
-  string _name,
-  string _director
-)
+Movie::Movie(MovieData _movie_data)
 {
-  unique_id  = _unique_id;
-  media_type = _media_type;
-  status     = _status;
-  price      = _price;
-  year       = _year;
-  name       = _name;
-  director   = _director;
+  data = _movie_data;
 }
 
 int Movie::operator>(Movie movie)
 {
   // по въведен режисьор и вид на носителя отпечатва данните за най-новият му незает филм
 	return (
-    status     == 0 &&
-    media_type == movie.media_type &&
-    director   == movie.director &&
-    year        > movie.year
+    data.status     == 0 &&
+    data.media_type == movie.data.media_type &&
+    data.director   == movie.data.director &&
+    data.year        > movie.data.year
   );
 }
 
 void Movie::Add(int _unique_id)
 {
   cout<<"Въведете тип на носител: 0 - Видеокасета, 1 - DVD: ";
-  cin>>media_type;
+  cin>>data.media_type;
 
   cout<<"Въведете статус на филма: 0 - Свободна, 1 - Заета: ";
-  cin>>status;
+  cin>>data.status;
 
   cout<<"Въведете име на филма: ";
   cin.ignore();
-  getline(cin,name);
+  getline(cin,data.name);
 
   cout<<"Въведете цена: ";
-  cin>>price;
+  cin>>data.price;
 
   cout<<"Въведете година на създаване: ";
-  cin>>year;
+  cin>>data.year;
 
   cout<<"Въведете режисьор ";
   cin.ignore();
-  getline(cin,director);
+  getline(cin,data.director);
 
-  unique_id = _unique_id;
+  data.unique_id = _unique_id;
 }
 
 void Movie::PrintData()
 {
-  cout<<"Tип носител: "<<media_types[media_type]<<endl;
-  cout<<"Статус: "<<statuses[status]<<endl;
-  cout<<"Име на филма: "<<name<<endl;
-  cout<<"Цена: "<<fixed<<setprecision(2)<<price<<"лв. \n";
-  cout<<"Година на създаване: "<<year<<"год. \n";
-  cout<<"Режисьор: "<<director<<endl;
+  cout<<"Номер в архива: "<<data.unique_id<<endl;
+  cout<<"Tип носител: "<<media_types[data.media_type]<<endl;
+  cout<<"Статус: "<<statuses[data.status]<<endl;
+  cout<<"Име на филма: "<<data.name<<endl;
+  cout<<"Цена: "<<fixed<<setprecision(2)<<data.price<<"лв. \n";
+  cout<<"Година на създаване: "<<data.year<<"год. \n";
+  cout<<"Режисьор: "<<data.director<<endl;
   cout<<"--------------------------- \n";
 }

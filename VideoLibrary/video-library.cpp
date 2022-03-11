@@ -100,7 +100,17 @@ void VideoLibrary::PrintLatestAvailableMovie()
   cout<<"Въведете тип на носител: 0 - Видеокасета, 1 - DVD: ";
   cin>>media_type;
 
-  Movie movie(0, media_type, 0, 0, 0, "", director);
+  MovieData data = {
+    .unique_id  = 0,
+    .media_type = media_type,
+    .status     = 0,
+    .year       = 0,
+    .price      = 0,
+    .name       = "",
+    .director   = director
+  };
+
+  Movie movie(data);
 	for(int i = 0; i < count_movies; i++) {
 		if(m[i] > movie) {
       movie = m[i];
