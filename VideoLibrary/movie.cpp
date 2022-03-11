@@ -52,18 +52,24 @@ void Movie::Add(int _unique_id)
 {
   cout<<"Въведете тип на носител: 0 - Видеокасета, 1 - DVD: ";
   cin>>media_type;
+
   cout<<"Въведете статус на филма: 0 - Свободна, 1 - Заета: ";
   cin>>status;
+
   cout<<"Въведете име на филма: ";
   cin.ignore();
   getline(cin,name);
+
   cout<<"Въведете цена: ";
   cin>>price;
+
   cout<<"Въведете година на създаване: ";
   cin>>year;
+
   cout<<"Въведете режисьор ";
   cin.ignore();
   getline(cin,director);
+
   unique_id = _unique_id;
 }
 
@@ -76,15 +82,4 @@ void Movie::PrintData()
   cout<<"Година на създаване: "<<year<<"год. \n";
   cout<<"Режисьор: "<<director<<endl;
   cout<<"--------------------------- \n";
-}
-
-void Movie::DummyData(int _unique_id)
-{
-  media_type = rand() % 2;
-  status = rand() % 2;
-  name = "Movie "+to_string(_unique_id);
-  price = _unique_id;
-  year =  1991+_unique_id;
-  director = "Режисьор "+to_string((_unique_id % 2 == 0) ? 0 : 1);
-  unique_id = _unique_id;
 }

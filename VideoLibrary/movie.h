@@ -2,6 +2,8 @@
 #include <string>
 using namespace std;
 
+
+
 class Movie
 {
   private:
@@ -21,6 +23,5 @@ class Movie
     int GetMediaType() { return media_type; }
     void Add(int); // метод за добавяне на нов филм
     void PrintData(); // метод за отпечатване на информацията на обект от този клас?
-    void DummyData(int);
     string GetDirector() { return director; }
 };

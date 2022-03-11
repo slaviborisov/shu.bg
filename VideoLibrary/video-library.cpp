@@ -109,11 +109,3 @@ void VideoLibrary::PrintLatestAvailableMovie()
   if(movie.GetID() > 0) movie.PrintData();
   else cout<<"Няма намерен резултат!";
 }
-
-void VideoLibrary::DummyData(int count)
-{
-  m = new Movie[count];
-  for(int i = 0; i < count; i++)
-    m[i].DummyData(i + 1);
-  count_movies = count;
-}

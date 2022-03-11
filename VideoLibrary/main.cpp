@@ -23,7 +23,7 @@ int main()
 		cout << "4. Изтриване на филм \n";
 		cout << "5. Покажете всички филми по съответен режисьор \n";
 		cout << "6. Покажете най-новият незает филм по съответен режисьор \n";
-		cout << "7. Add dummy data \n";
+		cout << "7. Генерирай n-брой филми \n";
 		cin >> option;
 		switch(option)
 		{
@@ -34,7 +34,6 @@ int main()
 			case 4: videoLibrary.RemoveMovie(); break;
 			case 5: videoLibrary.PrintMoviesByDirector(); break;
 			case 6: videoLibrary.PrintLatestAvailableMovie(); break;
-			case 7: videoLibrary.DummyData(10); break;
 			default: cout << "Грешен избор! \n"; break;
 		}
 	} while(option);

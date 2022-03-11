@@ -19,6 +19,5 @@ class VideoLibrary {
     void RemoveMovie();
     void PrintMoviesByDirector(); // Показва всички филми на конкретен режисьор
     void PrintLatestAvailableMovie();
-    void DummyData(int); // Метод по желание. Добавя автоматично -n на брой филми.
     ~VideoLibrary() { delete []m; } //деструктор
 };
