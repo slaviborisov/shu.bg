@@ -4,14 +4,17 @@ using namespace std;
 
 /*
 	# За игнориране паразитните ентъри:
-	# cin.ignore(cin.rdbuf()->in_avail()); // не работи на Mac(нямам компютър на windows)
-	# cin.ignore(); работи на Mac;
+	# cin.ignore(cin.rdbuf()->in_avail()); // не работи на Mac
+	# cin.ignore(); // работи на Mac;
 	# ОК, след изветно търсене забелязах, че работи като се добави 1-ца накрая:
 	# cin.ignore(cin.rdbuf()->in_avail()+1);
 */
 
 int main()
 {
+	/*
+    system("chcp 1251"); - показва warning na mac
+  */
 	VideoLibrary videoLibrary;
 	int option;
 	do {
@@ -37,5 +40,8 @@ int main()
 		}
 	} while(option);
 
+	/*
+    system("pause"); - показва warning na mac
+  */
 	return 0;
 }
