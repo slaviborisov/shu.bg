@@ -3,7 +3,6 @@
 #include <string>
 using namespace std;
 
-
 CPerson::CPerson()
 {
   reg_id = 0;
@@ -41,7 +40,7 @@ void CPerson::Add()
   cin>>reg_id;
 
   cout<<"Въведете име на клиента: ";
-    cin.ignore();; //Игнорира паразитните Ентъри
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,name);
 
   cout<<"Въведете ЕГН: ";
@@ -57,11 +56,11 @@ void CPerson::Add()
   cin>>weight;
 
   cout<<"Въведете професия: ";
-  cin.ignore(); //Игнорира паразитните Ентъри
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,profession);
 
   cout<<"Въведете Хоби: ";
-  cin.ignore(); //Игнорира паразитните Ентъри
+  cin.ignore(cin.rdbuf()->in_avail()); //Игнорира паразитните Ентъри
   getline(cin,hobby);
 }
 

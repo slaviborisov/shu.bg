@@ -64,78 +64,56 @@ void CAgency::DeletePerson()
   }
 }
 
-// void CAgency::PrintStudentByParams()
-// {
-//   int grade;
-//   cout<<"Въведете клас на ученика: ";
-//   cin>>grade;
-
-//   string section;
-//   cout<<"Въведете паралелка на ученика: ";
-//   cin.ignore(); //Игнорира паразитните Ентъри
-//   getline(cin,section);
-
-//   int number;
-//   cout<<"Въведете номер на ученика: ";
-//   cin>>number;
-
-//   bool hasStudent = false;
-//   for(int i = 0; i < total_members; i++)
-//     if(m[i].GetGrade() == grade && m[i].GetSection() == section && m[i].GetNumber() == number) {
-//       m[i].Print();
-//       hasStudent = true;
-//     }
-
-//   if(hasStudent == false) {
-//     cout<<"Не намерихме ученик!"<<endl;
-//   }
-// }
-
-// void CAgency::StudentsLessThanAge()
-// {
-//   int age;
-//   cout<<"Въведете възраст на ученика: ";
-//   cin>>age;
-//   for(int i = 0; i < total_members; i++)
-//     if(age > m[i].GetAge() )
-//       cout<<m[i].GetName()<<" | ";
-// }
-
-// void CAgency::StudentsLessThanWeight()
-// {
-//   int weight;
-//   cout<<"Въведете тегло: ";
-//   cin>>weight;
-//   for(int i = 0; i < total_members; i++)
-//     if(weight > m[i].GetWeight() )
-//       m[i].Print();
-// }
-
-// void CAgency::TheHeaviestStudent()
-// {
-//   int grade;
-//   cout<<"Въведете клас: ";
-//   cin>>grade;
-//   CPerson student("", 0, "", 0, 0, 0, grade);
-//   for(int i = 0; i < total_members; i++)
-//     if(grade == m[i].GetGrade() )
-//       if(m[i] > student)
-//         student = m[i];
-//   cout<<"Най-тежкият ученик е: "<<student.GetName()<<endl;
-// }
-
-void CAgency::DummyData()
+void CAgency::PrintByPersonalID()
 {
-  m = new CPerson[6];
-  m[0] = CPerson(1, "Слави", 1, 0, 36, 75, "Developer", "Tenis");
-  m[1] = CPerson(1, "Младен", 2, 0, 38, 81, "Logistic", "Tenis");
-  m[2] = CPerson(1, "Мария", 3, 0, 31, 65, "Director", "Jogging");
-  m[3] = CPerson(1, "Яна", 4, 0, 28, 60, "Cosmetic", "Hikings");
-  m[4] = CPerson(1, "Виктор", 5, 0, 36, 84, "Financier", "Garden");
-  m[5] = CPerson(1, "Таня", 6, 0, 36, 49, "Chef Cooker", "Walk");
-  total_members = 6;
+  long long personal_id;
+  cout<<"Въведете ЕГН на клиента: ";
+  cin>>personal_id;
+
+  int index = GetByPersonalID(personal_id);
+  if(index > 0) {
+     m[index].Print();
+  }
+}
+
+void CAgency::PrintByProfession()
+{
+  string profession;
+  cout<<"Въведете професия на клиента: ";
+  cin>>profession;
+
+    for(int i = 0; i < total_members; i++)
+      if (profession == m[i].GetProfession())
+        m[i].Print();
+}
+
+void CAgency::PrintYoungestPerson()
+{
+  int sex;
+  float weight;
+  string profession;
+  cout<<"Въведете пол на клиента (0 - Мъж, 1 - Жена): ";
+  cin>>sex;
+
+  cout<<"Въведете тегло на клиента: ";
+  cin>>weight;
+
+  cout<<"Въведете професия на клиента: ";
+  cin>>profession;
 
 
-  // CPerson::CPerson(int _reg_id, string _name, int _personal_id, int _sex, int _age,
-  // float _weight, string _profession, string _hobbys
+  CPerson person(0, "", 0, sex, 100, weight, profession, "Walk");
+
+  for(int i = 0; i < total_members; i++)
+    if (sex == m[i].GetSex() && weight == m[i].GetWeight() && profession == m[i].GetProfession())
+      if(m[i] < person) {
+        person = m[i];
+      }
+
+
+  if(person.GetPersonalID() > 0) {
+    cout<<"Най-младия клиент със сходни качества е: \n";
+    person.Print();
+  }
+  else cout<<"Няма намерен клиент със сходни качества! \n";
 }

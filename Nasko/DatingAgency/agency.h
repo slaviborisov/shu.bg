@@ -14,13 +14,12 @@ class CAgency {
     CAgency(string);
     void AddPerson();
     void PrintPerson();
-    void PrintAllMembers();
     int GetByPersonalID(long long);
+    void PrintAllMembers();
     void DeletePerson();
-    // void PrintStudentByParams();
-    // void StudentsLessThanAge();
-    // void StudentsLessThanWeight();
-    // void TheHeaviestStudent();
+    void PrintByPersonalID();
+    void PrintByProfession();
+    void PrintYoungestPerson();
     void DummyData();
     ~CAgency() { delete []m; } // Деструктор
 };
