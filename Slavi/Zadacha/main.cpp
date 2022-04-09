@@ -1,29 +1,27 @@
-#include "class2.h"
+#include "company.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
   system("chcp 1251");
-	Class2 class2;
+	CCompany CCompany;
 	int c;
 	do {
 		cout <<endl;
 		cout<< "0. Изход от програмата "<<endl;
-		cout<< "1. Добавя "<<endl;
-		cout<< "2. Показва "<<endl;
-		cout<< "3. Показва всички "<<endl;
-    cout<< "4. Изтрива "<<endl;
-		cout<< "5. UsePointer()"<<endl;
+		cout<< "1. Добавя нов продкт"<<endl;
+		cout<< "2. Показва всички продукти"<<endl;
+		cout<< "3. Показва имената на всички програмни продукти с обем по-голям от зададения"<<endl;
+    cout<< "4. Показва оборота от продадените програмни продукти по зададена фирма производител"<<endl;
 		cin>>c;
 		switch(c)
 		{
 			case 0: break;
-			case 1: class2.Add(); break;
-			case 2: class2.Print(); break;
-			case 3: class2.PrintAll(); break;
-			case 4: class2.Delete(); break;
-			case 5: class2.UsePointer(); break;
+			case 1: CCompany.Add(); break;
+			case 2: CCompany.PrintAll(); break;
+			case 3: CCompany.PrintProductsBySize(); break;
+			case 4: CCompany.PrintTurnoverByCompany(); break;
 			default: cout << "Грешен избор! \n"; break;
 		}
 	} while(c);
